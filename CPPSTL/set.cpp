@@ -12,15 +12,11 @@
 
 int main() 
 {
+
+	// ================ set 集合	
 	// set集合
-	std::set<int> s;
-	
-	// 插入元素
-	s.insert(1);
-	s.insert(33);
-	s.insert(100);
-	s.insert(44);
-	s.insert(1);//元素重合了是不会放进集合中的
+	int data[] = {1, 33, 100, 44, 1};
+	std::set<int> s(data, data+5);
 	std::for_each(s.begin(), s.end(), [] (int n) {std::cout << n << ", ";} );	
 
 	// 查找元素
@@ -45,5 +41,31 @@ int main()
 	{
 		std::cout << *i << std::endl;
 	}
+
+
+	// ================multiset
+	int data1[] = {11, 22, 33, 66, 44, 66};
+	std::multiset<int> ms(data1, data1+6);
 	
+	// 遍历
+	for (std::multiset<int>::iterator i = ms.begin(); i != ms.end(); i++)
+	{
+		std::cout << *i << ' ';
+	}
+	std::cout << '\n';
+
+	//  查找
+	std::pair<std::multiset<int>::iterator, std::multiset<int>::iterator> p = ms.equal_range(66);
+	for (std::multiset<int>::iterator i = p.first; i != p.second; i++)
+	{
+		std::cout << *i << " ";
+	}
+	std::cout << '\n';
+
+	// 清除
+	ms.erase(p.first, p.second);
+	for (std::multiset<int>::iterator i = ms.begin(); i != ms.end(); i++)
+	{	
+		std::cout << *i << ' ';
+	}
 }
