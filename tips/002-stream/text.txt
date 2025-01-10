@@ -1,0 +1,4 @@
+add in the beginning
+1110
+这是新附加的内容
+在文件末尾新增几个字
