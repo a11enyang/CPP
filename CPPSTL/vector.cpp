@@ -1,5 +1,6 @@
 // vector数组，长度可变的数组
 #include <algorithm>
+#include <cstddef>
 #include <iostream>
 #include <vector>
 
@@ -10,6 +11,21 @@ void forPrint(std::vector<T>& v)
 	std::for_each(v.begin(), v.end(), [] (T n) {std::cout << n << ", ";});
 	std::cout << '\n';
 }
+
+template <typename T>
+class MyAllocator
+{
+	using value_type = T;
+	using pointer = T*;
+	using const_pointer = const T*;
+	using reference = T&;
+	using const_reference = const T&;
+	using size_type = std::size_t;
+	using difference_type = std::ptrdiff_t;
+
+};
+
+
 
 int main()
 {
@@ -49,7 +65,6 @@ int main()
 
 	v.resize(3, 12);// 改短会直接删除
 	forPrint(v);	
-
 
 	
 }

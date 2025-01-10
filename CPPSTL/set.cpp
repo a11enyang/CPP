@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iostream>
 #include <set>
+#include <unordered_set>
 
 // set: 元素只会出现一次；元素是有序的
 // multiset: 元素可以出现多次；元素是有序的
@@ -68,4 +69,11 @@ int main()
 	{	
 		std::cout << *i << ' ';
 	}
+	
+	std::cout << '\n';	
+	// ================unordered_set
+	std::unordered_set<int> us = {4, 5, 4, 8, 9, -1};
+
+	// 便利
+	std::for_each(us.begin(), us.end(), [] (int n) {std::cout << n << ',';});
 }
