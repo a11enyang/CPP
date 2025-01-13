@@ -10,7 +10,7 @@ int main()
 	auto test=[]()
 	{
 		std::cout << "线程 id: " << std::this_thread::get_id() << std::endl;
-		gLock.lock();//互斥锁，也是自旋锁，因为没有用到条件变量，所以线程会不断去访问锁是否释放
+		gLock.lock();//互斥锁，因为没有用到条件变量，所以线程会不断去访问锁是否释放
 		count++;
 		gLock.unlock();
 	};
