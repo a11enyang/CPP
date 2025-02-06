@@ -8,6 +8,7 @@ void process(int& x) {
 
 void process(int&& x) {
     std::cout << "Processing rvalue: " << x << std::endl;
+    x = 20;
 }
 
 // 转发函数模板
@@ -21,13 +22,14 @@ int main() {
     int x = 10;
 
     // 传递左值
-    forwarder(x); // 调用 process(int&)
+    //forwarder(x); // 调用 process(int&)
 
     // 传递右值
-    forwarder(20); // 调用 process(int&&)
+    //forwarder(20); // 调用 process(int&&)
 
     // 传递右值（通过 std::move）
     forwarder(std::move(x)); // 调用 process(int&&)
 
+    std::cout << "x value: " << x << std::endl;
     return 0;
 }
